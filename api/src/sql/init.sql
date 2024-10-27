@@ -18,4 +18,4 @@ CREATE TABLE swapi_request (
     last_updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX ix_swapu_request_query ON swapi_request (query);
+CREATE INDEX ix_swapi_request_query ON swapi_request (query);
