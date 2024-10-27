@@ -10,7 +10,6 @@
     "build": "yarn workspaces run build",
     "lint": "yarn workspaces run lint",
     "format": "yarn workspaces run format",
-    "test": "yarn workspaces run test",
     "start": "concurrently \"yarn workspace api start\" \"yarn workspace web start\""
   },
   "author": "Francois Laubscher",
