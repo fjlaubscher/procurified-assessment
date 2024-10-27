@@ -1,0 +1,21 @@
+@use './colors';
+
+@mixin info {
+  background-color: colors.$info-blue;
+  color: colors.$dark-text;
+}
+
+@mixin warning {
+  background-color: colors.$warning-yellow;
+  color: colors.$dark-text;
+}
+
+@mixin error {
+  background-color: colors.$error-red;
+  color: colors.$dark-text;
+}
+
+@mixin success {
+  background-color: colors.$success-green;
+  color: colors.$dark-text;
+}

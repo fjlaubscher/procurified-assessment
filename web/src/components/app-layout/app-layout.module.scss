@@ -1,0 +1,59 @@
+@use '../../styles/breakpoints';
+@use '../../styles/colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.navbar {
+  background-color: colors.$primary;
+  color: #fff;
+
+  nav {
+    padding: 0 1rem;
+    width: 100%;
+    min-height: 4.25rem;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 15% auto 15%;
+
+    .home {
+      color: white;
+      justify-self: start;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 1.25rem;
+      text-align: center;
+      align-self: center;
+    }
+
+    .action {
+      justify-self: end;
+    }
+  }
+}
+
+.content {
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: breakpoints.$desktop) {
+    flex-direction: row-reverse;
+  }
+}
+
+.children {
+  padding: 1rem 1rem 6rem;
+  flex: 1;
+
+  @media (min-width: breakpoints.$desktop) {
+    padding-bottom: 1rem;
+  }
+}

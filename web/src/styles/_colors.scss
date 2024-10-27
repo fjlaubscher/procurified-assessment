@@ -1,0 +1,19 @@
+@use 'sass:color';
+
+$primary: #2176ff;
+$accent: #f79824;
+
+$info-blue: #1a98ff;
+$warning-yellow: #ffc107;
+$error-red: #ff0033;
+$success-green: #4bca81;
+
+$light-background: #f0f0f0;
+$light-surface: color.adjust($light-background, $lightness: 5%);
+$light-border: color.adjust($light-background, $lightness: -5%);
+$light-text: #202020;
+
+$dark-background: #202020;
+$dark-surface: color.adjust($dark-background, $lightness: 5%);
+$dark-border: color.adjust($dark-background, $lightness: 10%);
+$dark-text: #fafafa;

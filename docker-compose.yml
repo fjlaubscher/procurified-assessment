@@ -1,0 +1,14 @@
+services:
+  db:
+    container_name: procurified_assessment_postgres
+    image: "postgres:17"
+
+    ports:
+      - 5432:5432
+
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: procurified
+      
+    volumes:
+      - ./volumes/db/:/var/lib/postgresql/data/
