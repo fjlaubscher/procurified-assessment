@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styles from './loader.module.scss';
 
 const Loader = ({ className }) => (
-  <div className={classnames(styles.loader, className)} data-testid="loader">
+  <div className={classnames(styles.loader, className)}>
     <div />
     <div />
     <div />

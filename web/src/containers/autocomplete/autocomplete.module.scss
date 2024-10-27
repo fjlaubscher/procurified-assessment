@@ -34,6 +34,7 @@
 
   .suggestions {
     display: flex;
+    width: 100%;
     flex-direction: column;
     list-style: none;
     margin: 0;
@@ -42,7 +43,6 @@
     box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.1);
     color: colors.$light-text;
     border-radius: 0.5rem;
-    margin-top: 1rem;
 
     li {
       padding: 0.75rem;
@@ -58,6 +58,20 @@
         font-weight: bold;
       }
     }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: colors.$dark-surface;
+      color: colors.$dark-text;
+    }
+  }
+
+  .noResults {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: colors.$light-surface;
+    box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.1);
+    color: colors.$light-text;
+    border-radius: 0.5rem;
 
     @media (prefers-color-scheme: dark) {
       background-color: colors.$dark-surface;

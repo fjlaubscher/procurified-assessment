@@ -10,7 +10,7 @@ import AppRouter from './router';
 
 const App = () => {
   const fallback = (
-    <AppLayout title="Loading..." isLoading>
+    <AppLayout title="Loading" loading>
       <Loader />
     </AppLayout>
   );

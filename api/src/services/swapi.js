@@ -7,8 +7,7 @@ const searchPeopleListAsync = async (query) => {
     const response = await fetch(requestURL);
 
     if (response.ok) {
-      const json = await response.json();
-      return json.results;
+      return await response.json();
     } else {
       return null;
     }

@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
         const response = await searchPeopleListAsync(term);
         const updatedRequest = await updateSWAPIRequestAsync({ query: term, response });
 
-        return res.status(200).json({ status: 'success', data: updatedRequest });
+        return res.status(200).json({ status: 'success', data: updatedRequest.response });
       } else {
         return res.status(200).json({ status: 'success', data: cachedRequest.response });
       }
@@ -41,8 +41,11 @@ router.get('/', async (req, res) => {
       const response = await searchPeopleListAsync(term);
 
       if (response && response.count) {
-        const newRequest = await createSWAPIRequestAsync({ query: term, response });
-        return res.status(200).json({ status: 'success', data: newRequest });
+        const newRequest = await createSWAPIRequestAsync({
+          query: term,
+          response: response.results
+        });
+        return res.status(200).json({ status: 'success', data: newRequest.response });
       } else {
         return res.status(200).json({ status: 'success', data: [] });
       }

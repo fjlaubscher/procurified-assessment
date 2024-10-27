@@ -6,6 +6,7 @@ import { FaSearch } from 'react-icons/fa';
 // components
 import Field from '../../components/field';
 import Loader from '../../components/loader';
+import Stack from '../../components/stack';
 
 // hooks
 import useAutocomplete from '../../hooks/use-autocomplete';
@@ -29,35 +30,36 @@ const Autocomplete = ({ className, onChangeAsync, onSelect }) => {
 
   return (
     <Field className={classnames(styles.container, className)}>
-      <div className={styles.input}>
-        <input
-          placeholder="Search..."
-          type="text"
-          value={value}
-          onChange={onChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          data-testid="autocomplete-input"
-        />
-        {loading ? <Loader /> : <FaSearch data-testid="autocomplete-icon" />}
-      </div>
-      {shouldShowSuggestions ? (
-        suggestions.length ? (
-          <ul className={styles.suggestions} data-testid="autocomplete-suggestions">
-            {suggestions.map((suggestion, i) => (
-              <li
-                key={`suggestion-${i}`}
-                onClick={() => handleOnSuggestionClick(suggestion)}
-                role="option"
-              >
-                {highlightAutocompleteMatches(value, suggestion.name)}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <span data-testid="autocomplete-no-results">No results</span>
-        )
-      ) : null}
+      <Stack direction="column">
+        <div className={styles.input}>
+          <input
+            placeholder="Search..."
+            type="text"
+            value={value}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+          />
+          {loading ? <Loader /> : <FaSearch />}
+        </div>
+        {shouldShowSuggestions ? (
+          suggestions.length ? (
+            <ul className={styles.suggestions}>
+              {suggestions.map((suggestion, i) => (
+                <li
+                  key={`suggestion-${i}`}
+                  onClick={() => handleOnSuggestionClick(suggestion)}
+                  role="option"
+                >
+                  {highlightAutocompleteMatches(value, suggestion.name)}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className={styles.noResults}>No results</div>
+          )
+        ) : null}
+      </Stack>
     </Field>
   );
 };

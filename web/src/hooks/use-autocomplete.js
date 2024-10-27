@@ -24,7 +24,17 @@ const useAutocomplete = ({ onChangeAsync, minChars = 3, delay = 300 }) => {
     [loading, setLoading, setSuggestions, onChangeAsync]
   );
 
-  const handleOnChange = useCallback((e) => setValue(e.currentTarget.value), [setValue]);
+  const handleOnChange = useCallback(
+    (e) => {
+      const newValue = e.currentTarget.value;
+      setValue(newValue);
+
+      if (!newValue) {
+        setSuggestions(null);
+      }
+    },
+    [setValue, setSuggestions]
+  );
 
   const handleOnBlur = useCallback(() => {
     // with the current implementation,
